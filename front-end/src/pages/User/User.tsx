@@ -14,7 +14,7 @@ export const UserPage: React.FC = withWalletProtection(() => {
         <Header />
         <Box>
           {t(
-            "As an example, you can put current user's latest transactions here..."
+            "As an example, you can put current user's latest transactions here.. hello world."
           )}
         </Box>
       </Container>
