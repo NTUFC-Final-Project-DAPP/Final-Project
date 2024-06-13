@@ -12,6 +12,7 @@ import {
 import { FaExternalLinkAlt } from '@react-icons/all-files/fa/FaExternalLinkAlt';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { Link as RouterLink } from 'react-router-dom';  //6/13 edited
 
 import { PageMeta } from '../../features/ui/components/PageMeta/PageMeta';
 
@@ -105,6 +106,14 @@ export const HomePage: React.FC = () => {
               rightIcon={<FaExternalLinkAlt />}
             >
               {t('Learn CRA Template: dApp')}
+            </Button>
+            <Button  //6/13 edited
+              as={RouterLink}
+              to="/login"
+              variant="solid"
+              size="md"
+            >
+              {t('Login')}
             </Button>
           </Stack>
         </Stack>
