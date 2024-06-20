@@ -12,11 +12,21 @@ import {
 import { FaExternalLinkAlt } from '@react-icons/all-files/fa/FaExternalLinkAlt';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link as RouterLink } from 'react-router-dom';  //6/13 edited
+import { Link as RouterLink } from 'react-router-dom'; // 6/13 edited
 
 import { PageMeta } from '../../features/ui/components/PageMeta/PageMeta';
-
 import logo from './assets/images/logo.svg';
+
+// Imported components from Campaign
+import { Navbar, Footer } from "../components";
+import Hero from "../app/hero";
+import OutImpressiveStats from "../app/out-impressive-stats";
+import CoursesCategories from "../app/courses-categories";
+import ExploreCourses from "../app/explore-courses";
+import Testimonial from "../app/testimonial";
+import Events from "../app/events";
+import StudentsFeedback from "../app/students-feedback";
+import TrustedCompany from "../app/trusted-companies";
 
 export const HomePage: React.FC = () => {
   const { t } = useTranslation('PageHome');
@@ -24,6 +34,7 @@ export const HomePage: React.FC = () => {
   const description: string = t(
     'CRA Template: dApp is a create-react-app template specifically designed for decentralized application (dApp) frontend development.'
   );
+
   return (
     <>
       <style>
@@ -32,7 +43,7 @@ export const HomePage: React.FC = () => {
             height: 20vmin;
             pointer-events: none;
           }
-          
+
           @media (prefers-reduced-motion: no-preference) {
             .App-logo {
               animation: App-logo-spin infinite 20s linear;
@@ -49,6 +60,8 @@ export const HomePage: React.FC = () => {
       `}
       </style>
       <PageMeta title={title} description={description} url="" />
+      <Navbar />
+      <Hero />
       <Container maxW="3xl">
         <Stack
           as={Box}
@@ -107,7 +120,7 @@ export const HomePage: React.FC = () => {
             >
               {t('Learn CRA Template: dApp')}
             </Button>
-            <Button  //6/13 edited
+            <Button // 6/13 edited
               as={RouterLink}
               to="/login"
               variant="solid"
@@ -115,9 +128,18 @@ export const HomePage: React.FC = () => {
             >
               {t('Login')}
             </Button>
+            <CoursesCategories />
+            {OutImpressiveStats && <OutImpressiveStats />}
+            {CoursesCategories && <CoursesCategories />}
+            {ExploreCourses && <ExploreCourses />}
+            {Testimonial && <Testimonial />}
+            {Events && <Events />}
+            {StudentsFeedback && <StudentsFeedback />}
+            {TrustedCompany && <TrustedCompany />}
           </Stack>
         </Stack>
       </Container>
+      <Footer />
     </>
   );
 };
